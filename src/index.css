@@ -8,47 +8,28 @@ body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Floating Duck Petal Fall Animation */
-@keyframes petalFall {
-  0% {
-    top: -10%;
-    transform: translateX(0) rotate(0deg);
+::selection {
+  background: #4f46e5;
+  color: #fff;
+}
+
+@keyframes authEnter {
+  from {
     opacity: 0;
+    transform: translateY(14px);
   }
-  15% {
-    opacity: 0.95;
-  }
-  50% {
-    transform: translateX(35px) rotate(18deg);
-  }
-  85% {
-    opacity: 0.95;
-  }
-  100% {
-    top: 110%;
-    transform: translateX(-25px) rotate(45deg);
-    opacity: 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@keyframes duckSway {
-  0%, 100% {
-    transform: rotate(-12deg) scale(1);
-  }
-  50% {
-    transform: rotate(14deg) scale(1.06);
-  }
+.auth-enter {
+  animation: authEnter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.floating-duck-item {
-  position: absolute;
-  pointer-events: none;
-  animation-name: petalFall;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-iteration-count: infinite;
-}
-
-.duck-inner-sway {
-  display: inline-block;
-  animation: duckSway 3s ease-in-out infinite;
+@media (prefers-reduced-motion: reduce) {
+  .auth-enter {
+    animation: none;
+  }
 }

@@ -1,62 +1,66 @@
 import React from 'react';
-import { LogOut, Folder, CheckCircle2 } from 'lucide-react';
+import { LogOut } from 'lucide-react';
+import AuthShell from '../components/AuthShell';
 
 export default function Home({ user, onLogout }) {
-  const initial = user?.name ? user.name.charAt(0).toUpperCase() : 'U';
+  const displayName = user?.name || user?.username || 'Người dùng';
+  const email = user?.email || 'chưa có email';
+  const username = user?.username || (email.includes('@') ? email.split('@')[0] : 'user');
+  const initial = displayName.charAt(0).toUpperCase();
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
-      {/* Top Navbar */}
-      <nav className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 lg:px-12 shadow-sm">
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl border-2 border-indigo-600 flex items-center justify-center text-indigo-600 shadow-sm">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-          </div>
-          <span className="text-xl font-extrabold tracking-tight text-slate-900">AuthStudio</span>
+    <AuthShell
+      eyebrow="Hồ sơ · phiên demo"
+      title={displayName}
+      subtitle={email}
+      panelKicker="PROFILE / 03 — ĐÃ ĐĂNG NHẬP"
+      panelTitle={
+        <>
+          Xong.
+          <br />
+          Đây là bạn.
+        </>
+      }
+      panelMeta={`@${username} · đang hoạt động`}
+      panelFoot="PHIÊN CỤC BỘ · LOCALSTORAGE"
+      footer={
+        <button
+          type="button"
+          onClick={onLogout}
+          className="w-full py-4 px-6 rounded-2xl bg-slate-950 hover:bg-indigo-700 text-white font-bold text-[15px] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/30"
+        >
+          <LogOut size={17} />
+          <span>Đăng xuất</span>
+        </button>
+      }
+    >
+      <div className="flex items-center gap-4 mb-7">
+        <div className="w-16 h-16 rounded-3xl bg-indigo-600 text-white text-2xl font-extrabold flex items-center justify-center shrink-0">
+          {initial}
         </div>
-
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-indigo-600 text-white font-bold text-xs flex items-center justify-center shadow-sm">
-            {initial}
-          </div>
-          <div className="hidden sm:block text-left mr-2">
-            <div className="text-xs font-bold text-slate-900 leading-tight">
-              {user?.name || user?.username || 'User'}
-            </div>
-            <div className="text-[11px] text-slate-500">
-              {user?.email || 'user@example.com'}
-            </div>
-          </div>
-          <button
-            type="button"
-            className="px-4 py-2 rounded-full border border-red-200 bg-red-50 hover:bg-red-100 text-red-600 text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-sm active:scale-95"
-            onClick={onLogout}
-          >
-            <LogOut size={13} />
-            <span>Log Out</span>
-          </button>
+        <div className="min-w-0">
+          <p className="font-mono text-[11px] tracking-[0.2em] text-indigo-600 font-bold">@{username.toUpperCase()}</p>
+          <p className="mt-1 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-bold">
+            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+            Đang hoạt động
+          </p>
         </div>
-      </nav>
+      </div>
 
-      {/* Empty State Content */}
-      <main className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-        <div className="w-full max-w-md bg-white border-2 border-dashed border-slate-200 rounded-3xl p-10 shadow-sm flex flex-col items-center">
-          <div className="w-16 h-16 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4">
-            <Folder size={32} />
-          </div>
-
-          <div className="inline-flex items-center gap-1.5 text-emerald-600 text-xs font-bold mb-2">
-            <CheckCircle2 size={16} />
-            <span>Đã đăng nhập thành công</span>
-          </div>
-
-          <h2 className="text-2xl font-bold text-slate-900">
-            Trang chủ (Home Page)
-          </h2>
+      <dl className="border-t-2 border-slate-950">
+        <div className="flex items-baseline justify-between gap-4 py-4 border-b border-slate-200">
+          <dt className="text-sm font-medium text-slate-600">Email</dt>
+          <dd className="text-[15px] font-bold text-slate-950 truncate">{email}</dd>
         </div>
-      </main>
-    </div>
+        <div className="flex items-baseline justify-between gap-4 py-4 border-b border-slate-200">
+          <dt className="text-sm font-medium text-slate-600">Tên tài khoản</dt>
+          <dd className="text-[15px] font-bold text-slate-950 truncate">@{username}</dd>
+        </div>
+        <div className="flex items-baseline justify-between gap-4 py-4">
+          <dt className="text-sm font-medium text-slate-600">Trạng thái</dt>
+          <dd className="text-[15px] font-bold text-emerald-700">Phiên cục bộ</dd>
+        </div>
+      </dl>
+    </AuthShell>
   );
 }
