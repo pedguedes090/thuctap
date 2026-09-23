@@ -15,6 +15,11 @@ export default {
           700: '#4338ca',
         }
       },
+      boxShadow: {
+        card: '0 1px 2px 0 rgba(15, 23, 42, 0.04), 0 4px 12px -2px rgba(15, 23, 42, 0.06)',
+        field: '0 1px 2px 0 rgba(15, 23, 42, 0.04)',
+        raised: '0 10px 30px -10px rgba(15, 23, 42, 0.18)',
+      },
       keyframes: {
         shake: {
           '0%, 100%': { transform: 'translateX(0)' },

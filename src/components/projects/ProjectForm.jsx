@@ -166,14 +166,14 @@ export default function ProjectForm({ onCreated }) {
               <ul className="mt-3 flex flex-wrap gap-2">
                 {tech.map((item) => (
                   <li key={item}>
-                    <span className="inline-flex items-center gap-1.5 rounded-xl border-2 border-slate-200 py-1.5 pl-3 pr-1">
-                      <span className="text-sm font-bold text-slate-950">{item}</span>
+                    <span className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 py-1.5 pl-3 pr-1">
+                      <span className="text-sm font-bold text-slate-900">{item}</span>
                       <button
                         type="button"
                         aria-label={`Xoá công nghệ ${item}`}
                         title={`Xoá ${item}`}
                         onClick={() => setTech((current) => current.filter((tag) => tag !== item))}
-                        className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg text-slate-500 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/20"
+                        className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-md text-slate-600 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/20"
                       >
                         <X size={14} />
                       </button>

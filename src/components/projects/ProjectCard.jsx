@@ -13,14 +13,14 @@ function linkLabel(link) {
 export default function ProjectCard({ project, onRemove, removing, delay = 0 }) {
   return (
     <article
-      className={`animate-list flex flex-col rounded-3xl border-2 bg-white transition-all duration-150 ${
-        removing ? 'scale-[0.98] border-slate-300 opacity-40' : 'border-slate-950'
+      className={`animate-list flex flex-col rounded-2xl border-2 bg-white transition-all duration-150 ${
+        removing ? 'scale-[0.98] border-slate-300 opacity-40' : 'border-slate-200'
       }`}
       style={{ animationDelay: `${delay}ms` }}
     >
-      <header className="flex items-start justify-between gap-4 border-b-2 border-slate-950 px-6 py-5">
+      <header className="flex items-start justify-between gap-4 border-b border-slate-200 px-6 py-5">
         <div className="min-w-0">
-          <h2 className="break-words text-lg font-extrabold leading-tight tracking-[-0.015em] text-slate-950">
+          <h2 className="break-words text-lg font-extrabold leading-tight tracking-[-0.015em] text-slate-900">
             {project.name}
           </h2>
           {project.role && (
@@ -36,7 +36,7 @@ export default function ProjectCard({ project, onRemove, removing, delay = 0 }) 
           disabled={removing}
           aria-label={`Xoá dự án ${project.name}`}
           title={`Xoá ${project.name}`}
-          className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-xl text-slate-500 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/20 disabled:opacity-60"
+          className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-lg text-slate-600 transition-colors hover:bg-red-50 hover:text-red-600 focus:outline-none focus-visible:ring-4 focus-visible:ring-red-600/20 disabled:opacity-60"
         >
           {removing ? <Loader2 size={16} className="animate-spin" /> : <Trash2 size={16} />}
         </button>
@@ -52,7 +52,7 @@ export default function ProjectCard({ project, onRemove, removing, delay = 0 }) 
             {project.tech.map((item) => (
               <li
                 key={item}
-                className="rounded-lg bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700"
+                className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700"
               >
                 {item}
               </li>
@@ -62,7 +62,7 @@ export default function ProjectCard({ project, onRemove, removing, delay = 0 }) 
       </div>
 
       <footer className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 px-6 py-4">
-        <span className="text-xs tabular-nums text-slate-500">{formatDate(project.createdAt)}</span>
+        <span className="text-xs tabular-nums text-slate-600">{formatDate(project.createdAt)}</span>
 
         {project.link && (
           <a

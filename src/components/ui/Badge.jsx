@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TONES = {
-  success: 'bg-emerald-600 text-white',
+  success: 'bg-emerald-700 text-white',
   indigo: 'bg-indigo-600 text-white',
   slate: 'bg-slate-100 text-slate-700',
   outline: 'border border-slate-300 text-slate-700',

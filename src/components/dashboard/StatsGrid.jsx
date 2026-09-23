@@ -32,8 +32,8 @@ export default function StatsGrid({ user, stats, loading, animate = false }) {
   ];
 
   return (
-    <section className="overflow-hidden rounded-3xl border-2 border-slate-950 bg-white">
-      <div className="-mb-0.5 -mr-0.5 grid sm:grid-cols-2 lg:grid-cols-4">
+    <section className="overflow-hidden rounded-2xl border border-slate-200 shadow-card bg-white">
+      <div className="-mb-px -mr-px grid sm:grid-cols-2 lg:grid-cols-4">
         {cells.map((cell, index) => (
           <StatCell
             key={cell.label}

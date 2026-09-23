@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import AuthShell from '../components/auth/AuthShell';
 import AuthSwitchLink from '../components/auth/AuthSwitchLink';
 import Alert from '../components/ui/Alert';
@@ -25,7 +26,9 @@ const validate = (values) => ({
   confirmPassword: validateConfirmPassword(values.confirmPassword, values.password),
 });
 
-export default function RegisterPage({ onSwitchToLogin, onRegistered }) {
+export default function RegisterPage() {
+  const navigate = useNavigate();
+  const redirectRef = useRef(0);
   const { register } = useAuth();
   const form = useForm({
     initialValues: { name: '', email: '', password: '', confirmPassword: '' },
@@ -35,6 +38,8 @@ export default function RegisterPage({ onSwitchToLogin, onRegistered }) {
   const [serverError, setServerError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
+
+  useEffect(() => () => window.clearTimeout(redirectRef.current), []);
 
   useEffect(() => {
     if (!limit.locked) setServerError('');
@@ -67,7 +72,7 @@ export default function RegisterPage({ onSwitchToLogin, onRegistered }) {
 
       limit.clear();
       setSuccessMessage('Đăng ký thành công! Đang chuyển sang màn hình đăng nhập…');
-      setTimeout(onRegistered, 900);
+      redirectRef.current = window.setTimeout(() => navigate('/login'), 900);
     } catch (error) {
       setServerError(error.message);
       setSubmitting(false);
@@ -81,9 +86,9 @@ export default function RegisterPage({ onSwitchToLogin, onRegistered }) {
       subtitle="Một tài khoản cho mọi lần quay lại. Mất chưa tới một phút."
       footer={
         <AuthSwitchLink
+          to="/login"
           question="Đã có tài khoản?"
           actionLabel="Đăng nhập"
-          onAction={onSwitchToLogin}
         />
       }
     >
@@ -150,6 +155,7 @@ export default function RegisterPage({ onSwitchToLogin, onRegistered }) {
 
         <Button
           type="submit"
+          variant="cta"
           size="lg"
           fullWidth
           loading={submitting}
@@ -161,11 +167,11 @@ export default function RegisterPage({ onSwitchToLogin, onRegistered }) {
         </Button>
 
         {limit.locked ? (
-          <p className="pt-2 text-center text-xs font-bold text-red-600">
+          <p className="pt-2 text-center text-xs font-bold text-red-700">
             Tạm khoá đến {formatClock(limit.until)}
           </p>
         ) : (
-          <p className="pt-2 text-center text-xs text-slate-500">
+          <p className="pt-2 text-center text-xs text-slate-600">
             Quá {MAX_ATTEMPTS} lần thất bại sẽ tạm khoá 1 phút.
           </p>
         )}

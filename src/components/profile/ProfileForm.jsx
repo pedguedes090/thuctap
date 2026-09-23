@@ -65,7 +65,7 @@ export default function ProfileForm() {
           <p className="font-mono text-[11px] font-bold tracking-[0.2em] text-indigo-600">
             @{String(user.username).toUpperCase()}
           </p>
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-slate-600">
             Tên tài khoản được tạo tự động từ email khi đăng ký và không đổi được.
           </p>
         </div>
@@ -88,8 +88,8 @@ export default function ProfileForm() {
                   aria-label={color.label}
                   aria-pressed={active}
                   onClick={() => form.setField('avatarColor', color.id)}
-                  className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl transition-transform ${color.className} ${
-                    active ? 'ring-4 ring-slate-950 ring-offset-2' : 'hover:scale-105'
+                  className={`flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg transition-transform ${color.className} ${
+                    active ? 'ring-2 ring-indigo-600 ring-offset-2' : 'hover:scale-105'
                   }`}
                 >
                   {active && <Check size={16} className="text-white" />}

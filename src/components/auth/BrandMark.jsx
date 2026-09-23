@@ -7,7 +7,7 @@ export default function BrandMark({ tone = 'light' }) {
 
   return (
     <div className="flex items-center gap-2.5">
-      <div className={`flex h-9 w-9 items-center justify-center rounded-xl border-2 ${box}`}>
+      <div className={`flex h-9 w-9 items-center justify-center rounded-lg border-2 ${box}`}>
         <svg
           width="18"
           height="18"

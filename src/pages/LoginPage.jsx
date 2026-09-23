@@ -18,7 +18,7 @@ const validate = (values) => ({
   password: validatePassword(values.password),
 });
 
-export default function LoginPage({ onSwitchToRegister }) {
+export default function LoginPage() {
   const { login } = useAuth();
   const form = useForm({ initialValues: { identifier: '', password: '' }, validate });
   const limit = useAttemptLimit('login');
@@ -72,9 +72,9 @@ export default function LoginPage({ onSwitchToRegister }) {
       subtitle="Nhập thông tin để tiếp tục phiên làm việc của bạn."
       footer={
         <AuthSwitchLink
+          to="/register"
           question="Chưa có tài khoản?"
           actionLabel="Đăng ký ngay"
-          onAction={onSwitchToRegister}
         />
       }
     >
@@ -118,11 +118,11 @@ export default function LoginPage({ onSwitchToRegister }) {
         </Button>
 
         {limit.locked ? (
-          <p className="pt-2 text-center text-xs font-bold text-red-600">
+          <p className="pt-2 text-center text-xs font-bold text-red-700">
             Tạm khoá đến {formatClock(limit.until)}
           </p>
         ) : (
-          <p className="pt-2 text-center text-xs text-slate-500">
+          <p className="pt-2 text-center text-xs text-slate-600">
             Quá {MAX_ATTEMPTS} lần thất bại sẽ tạm khoá 1 phút.
           </p>
         )}

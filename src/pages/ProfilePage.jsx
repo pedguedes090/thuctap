@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfileForm from '../components/profile/ProfileForm';
+import ProfileHighlights from '../components/profile/ProfileHighlights';
 import Card from '../components/ui/Card';
 import { useAuth } from '../hooks/useAuth';
 import { daysSince, formatDate, formatDateTime } from '../utils/format';
@@ -15,22 +16,26 @@ export default function ProfilePage() {
   ];
 
   return (
-    <div className="grid gap-8 lg:grid-cols-3">
-      <ProfileForm />
+    <div className="space-y-8">
+      <div className="grid gap-8 lg:grid-cols-3">
+        <ProfileForm />
 
-      <Card title="Tóm tắt" subtitle="Dữ liệu đọc từ mock API">
-        <dl className="border-t border-slate-200">
-          {facts.map((fact) => (
-            <div
-              key={fact.label}
-              className="flex items-baseline justify-between gap-4 border-b border-slate-200 py-3 last:border-b-0"
-            >
-              <dt className="text-sm text-slate-600">{fact.label}</dt>
-              <dd className="text-right text-sm font-bold text-slate-950">{fact.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </Card>
+        <Card title="Tóm tắt" subtitle="Dữ liệu đọc từ mock API">
+          <dl className="border-t border-slate-200">
+            {facts.map((fact) => (
+              <div
+                key={fact.label}
+                className="flex items-baseline justify-between gap-4 border-b border-slate-200 py-3 last:border-b-0"
+              >
+                <dt className="whitespace-nowrap text-sm text-slate-600">{fact.label}</dt>
+                <dd className="text-right text-sm font-bold text-slate-900">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </Card>
+      </div>
+
+      <ProfileHighlights />
     </div>
   );
 }

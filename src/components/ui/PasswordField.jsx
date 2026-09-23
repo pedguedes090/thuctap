@@ -16,7 +16,7 @@ export default function PasswordField({ ...props }) {
           onClick={() => setVisible((current) => !current)}
           title={label}
           aria-label={label}
-          className="absolute inset-y-0 right-4 flex cursor-pointer items-center rounded-full px-1 text-slate-500 transition-colors hover:text-slate-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/20"
+          className="absolute inset-y-0 right-4 flex cursor-pointer items-center rounded-full px-1 text-slate-600 transition-colors hover:text-slate-900 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/20"
         >
           {visible ? <EyeOff size={18} /> : <Eye size={18} />}
         </button>

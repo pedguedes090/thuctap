@@ -18,7 +18,7 @@
       "password": "password123",
       "avatarColor": "emerald",
       "createdAt": "2026-09-04T09:40:00.000Z",
-      "lastLoginAt": "2026-09-20T07:05:00.000Z"
+      "lastLoginAt": "2026-09-23T04:24:09.752Z"
     },
     {
       "id": 3,
@@ -80,6 +80,13 @@
       "message": "Cập nhật thông tin hồ sơ",
       "createdAt": "2026-09-22T18:15:12.954Z",
       "id": 7
+    },
+    {
+      "userId": "2",
+      "type": "login",
+      "message": "Đăng nhập thành công",
+      "createdAt": "2026-09-23T04:24:10.053Z",
+      "id": 8
     }
   ],
   "categories": [

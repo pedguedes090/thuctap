@@ -28,11 +28,11 @@ export default function DangerZone() {
       {error && <Alert tone="error" className="mb-5">{error}</Alert>}
 
       {confirming ? (
-        <div className="rounded-2xl border-2 border-red-200 bg-red-50 p-5">
+        <div className="rounded-xl border border-red-200 bg-red-50 p-5">
           <p className="text-sm font-bold text-red-700">
             Xoá vĩnh viễn @{user.username}?
           </p>
-          <p className="mt-1.5 text-sm leading-relaxed text-red-600">
+          <p className="mt-1.5 text-sm leading-relaxed text-red-700">
             Hồ sơ và nhật ký hoạt động của tài khoản này sẽ không truy cập lại được. Không thể hoàn
             tác.
           </p>

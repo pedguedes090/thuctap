@@ -84,10 +84,10 @@ export default function SkillForm({ categories, onCreated }) {
                   type="button"
                   aria-pressed={active}
                   onClick={() => selectCategory(item.name)}
-                  className={`cursor-pointer rounded-xl border-2 px-3.5 py-2 text-sm font-bold transition-colors ${
+                  className={`cursor-pointer rounded-lg border px-3.5 py-2 text-sm font-bold transition-colors ${
                     active
-                      ? 'border-slate-950 bg-slate-950 text-white'
-                      : 'border-slate-200 text-slate-700 hover:border-slate-950'
+                      ? 'border-indigo-600 bg-indigo-600 text-white'
+                      : 'border-slate-200 text-slate-700 hover:border-slate-400'
                   }`}
                 >
                   {item.name}
@@ -102,10 +102,10 @@ export default function SkillForm({ categories, onCreated }) {
                 setNewCategoryMode(true);
                 setCategory('');
               }}
-              className={`inline-flex cursor-pointer items-center gap-1.5 rounded-xl border-2 border-dashed px-3.5 py-2 text-sm font-bold transition-colors ${
+              className={`inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-dashed px-3.5 py-2 text-sm font-bold transition-colors ${
                 newCategoryMode
                   ? 'border-indigo-600 text-indigo-700'
-                  : 'border-slate-300 text-slate-500 hover:border-indigo-600 hover:text-indigo-700'
+                  : 'border-slate-300 text-slate-600 hover:border-indigo-600 hover:text-indigo-700'
               }`}
             >
               <Plus size={15} />
@@ -130,7 +130,7 @@ export default function SkillForm({ categories, onCreated }) {
           )}
 
           {!newCategoryMode && errors.category && (
-            <p className="mt-2 pl-5 text-xs font-semibold text-red-600">{errors.category}</p>
+            <p className="mt-2 pl-5 text-xs font-semibold text-red-700">{errors.category}</p>
           )}
         </div>
 
@@ -152,7 +152,7 @@ export default function SkillForm({ categories, onCreated }) {
             <p className="mb-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-600">
               Mức độ
             </p>
-            <div className="grid w-full grid-cols-3 gap-1 rounded-2xl border-2 border-slate-200 p-1 sm:inline-flex sm:w-auto sm:gap-0">
+            <div className="grid w-full grid-cols-3 gap-1 rounded-xl border border-slate-200 p-1 sm:inline-flex sm:w-auto sm:gap-0">
               {SKILL_LEVELS.map((item) => {
                 const active = level === item.id;
 
@@ -162,8 +162,8 @@ export default function SkillForm({ categories, onCreated }) {
                     type="button"
                     aria-pressed={active}
                     onClick={() => setLevel(item.id)}
-                    className={`cursor-pointer whitespace-nowrap rounded-xl px-2 py-2 text-xs font-bold transition-colors sm:px-4 sm:text-sm ${
-                      active ? 'bg-slate-950 text-white' : 'text-slate-600 hover:text-slate-950'
+                    className={`cursor-pointer whitespace-nowrap rounded-lg px-2 py-2 text-xs font-bold transition-colors sm:px-4 sm:text-sm ${
+                      active ? 'bg-indigo-600 text-white' : 'text-slate-600 hover:text-slate-900'
                     }`}
                   >
                     {item.label}

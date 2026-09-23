@@ -18,7 +18,7 @@ function Skeleton() {
     <ul className="space-y-5">
       {[0, 1, 2].map((key) => (
         <li key={key} className="flex items-center gap-4">
-          <span className="h-10 w-10 shrink-0 rounded-xl bg-slate-200" />
+          <span className="h-10 w-10 shrink-0 rounded-lg bg-slate-200" />
           <span className="flex-1 space-y-2">
             <span className="block h-3.5 w-2/3 rounded bg-slate-200" />
             <span className="block h-3 w-24 rounded bg-slate-100" />
@@ -39,39 +39,55 @@ export default function ActivityFeed({ activities, loading, animate = false }) {
       {loading ? (
         <Skeleton />
       ) : activities.length === 0 ? (
-        <p className="py-6 text-center text-sm text-slate-500">
+        <p className="py-6 text-center text-sm text-slate-600">
           Chưa có hoạt động nào. Hãy đăng nhập lại hoặc cập nhật hồ sơ để tạo dòng nhật ký đầu tiên.
         </p>
       ) : (
-        <ul className="divide-y divide-slate-200">
+        <ol>
           {activities.map((item, index) => {
             const meta = ACTIVITY_META[item.type] || FALLBACK_META;
             const Icon = meta.icon;
+            const current = index === 0;
+            const last = index === activities.length - 1;
 
             return (
               <li
                 key={item.id}
-                className={`flex items-center gap-4 py-4 first:pt-0 last:pb-0 ${animate ? 'animate-rise' : ''}`}
-                style={animate ? { animationDelay: `${380 + Math.min(index * 45, 200)}ms` } : undefined}
+                className={`relative flex items-start gap-4 pb-6 last:pb-0 ${
+                  animate ? 'animate-list' : ''
+                }`}
+                style={animate ? { animationDelay: `${330 + index * 90}ms` } : undefined}
               >
+                {!last && (
+                  <span
+                    aria-hidden="true"
+                    className={`absolute bottom-0 left-[19px] top-10 w-px bg-slate-300 ${
+                      animate ? 'timeline-draw' : ''
+                    }`}
+                    style={animate ? { animationDelay: `${200 + index * 90}ms` } : undefined}
+                  />
+                )}
+
                 <span
-                  className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${meta.chip}`}
+                  className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${
+                    current ? 'bg-indigo-600 text-white' : meta.chip
+                  }`}
                 >
                   <Icon size={17} />
                 </span>
 
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate text-sm font-bold text-slate-950">
+                <span className="min-w-0 flex-1 pt-2">
+                  <span className="block truncate text-sm font-bold text-slate-900">
                     {item.message}
                   </span>
-                  <span className="block text-xs tabular-nums text-slate-500">
+                  <span className="block text-xs tabular-nums text-slate-600">
                     {timeAgo(item.createdAt)}
                   </span>
                 </span>
               </li>
             );
           })}
-        </ul>
+        </ol>
       )}
     </Card>
   );

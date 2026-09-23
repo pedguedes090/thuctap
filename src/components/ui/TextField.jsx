@@ -2,8 +2,8 @@ import React from 'react';
 import { AlertCircle } from 'lucide-react';
 
 const SIZES = {
-  md: 'px-6 py-3.5 text-[15px] rounded-2xl',
-  lg: 'px-6 py-4 text-[15px] rounded-2xl',
+  md: 'px-6 py-3.5 text-[15px] rounded-xl',
+  lg: 'px-6 py-4 text-[15px] rounded-xl',
 };
 
 export default function TextField({
@@ -37,12 +37,12 @@ export default function TextField({
         <Element
           id={inputId}
           rows={multiline ? rows : undefined}
-          className={`w-full border-2 bg-white font-medium text-slate-900 caret-indigo-600 transition-all placeholder:font-normal placeholder:text-slate-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/20 ${SIZES[size]} ${multiline ? 'resize-y leading-relaxed' : ''} ${rightSlot ? 'pr-14' : ''} ${
+          className={`w-full border bg-white font-medium text-slate-900 caret-indigo-600 shadow-field transition-all placeholder:font-normal placeholder:text-slate-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-indigo-600/20 ${SIZES[size]} ${multiline ? 'resize-y leading-relaxed' : ''} ${rightSlot ? 'pr-14' : ''} ${
             error
               ? 'border-red-500 focus:border-red-500 animate-shake'
               : emphasis
-                ? 'border-slate-900 focus:border-indigo-600'
-                : 'border-slate-200 hover:border-slate-300 focus:border-indigo-600'
+                ? 'border-slate-400 focus:border-indigo-600'
+                : 'border-slate-300 hover:border-slate-400 focus:border-indigo-600'
           }`}
           aria-invalid={Boolean(error)}
           {...props}
@@ -51,12 +51,12 @@ export default function TextField({
       </div>
 
       {error ? (
-        <p className="mt-1.5 flex items-center gap-1.5 pl-5 text-xs font-semibold text-red-600">
+        <p className="mt-1.5 flex items-center gap-1.5 pl-5 text-xs font-semibold text-red-700">
           <AlertCircle size={13} className="shrink-0" />
           <span>{error}</span>
         </p>
       ) : hint ? (
-        <p className="mt-1.5 pl-5 text-xs font-medium text-slate-500">{hint}</p>
+        <p className="mt-1.5 pl-5 text-xs font-medium text-slate-600">{hint}</p>
       ) : null}
     </div>
   );
