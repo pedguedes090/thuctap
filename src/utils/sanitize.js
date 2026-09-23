@@ -121,3 +121,116 @@ export function validateConfirmPassword(val, originalPassword) {
   }
   return '';
 }
+
+// Ký tự được phép trong tên kỹ năng: chữ, số và các ký hiệu thường gặp của tên công nghệ
+const SKILL_NAME_REGEX = /^[\p{L}\p{N}\s+#./&()-]+$/u;
+
+// Ký tự được phép trong tên danh mục kỹ năng
+const CATEGORY_NAME_REGEX = /^[\p{L}\p{N}\s&+./-]+$/u;
+
+/**
+ * Validate tên kỹ năng (Skill)
+ * - Độ dài: 1 - 40 ký tự
+ * - Cho phép: C#, Node.js, React Native, CI/CD, Tối ưu truy vấn SQL
+ */
+export function validateSkillName(val) {
+  const clean = sanitizeText(val);
+  if (!clean) return 'Vui lòng nhập tên kỹ năng.';
+  if (clean.length > 40) return 'Tên kỹ năng tối đa 40 ký tự.';
+  if (!SKILL_NAME_REGEX.test(clean)) {
+    return 'Tên kỹ năng chứa ký tự không được phép.';
+  }
+  return '';
+}
+
+/**
+ * Validate tên danh mục kỹ năng (Category)
+ * - Độ dài: 2 - 40 ký tự
+ * - Cho phép: Backend, Cơ sở dữ liệu, DevOps & Cloud, Tối ưu & Tăng trưởng
+ */
+export function validateCategoryName(val) {
+  const clean = sanitizeText(val);
+  if (!clean) return 'Vui lòng chọn hoặc nhập danh mục.';
+  if (clean.length < 2) return 'Tên danh mục tối thiểu 2 ký tự.';
+  if (clean.length > 40) return 'Tên danh mục tối đa 40 ký tự.';
+  if (!CATEGORY_NAME_REGEX.test(clean)) {
+    return 'Tên danh mục chứa ký tự không được phép.';
+  }
+  return '';
+}
+
+// Ký tự được phép trong tên dự án / vai trò / công nghệ của dự án
+const PROJECT_LABEL_REGEX = /^[\p{L}\p{N}\s.,+/&():_-]+$/u;
+
+/**
+ * Validate tên dự án (bắt buộc)
+ * - Độ dài: 2 - 80 ký tự
+ */
+export function validateProjectName(val) {
+  const clean = sanitizeText(val);
+  if (!clean) return 'Vui lòng nhập tên dự án.';
+  if (clean.length < 2) return 'Tên dự án tối thiểu 2 ký tự.';
+  if (clean.length > 80) return 'Tên dự án tối đa 80 ký tự.';
+  if (!PROJECT_LABEL_REGEX.test(clean)) {
+    return 'Tên dự án chứa ký tự không được phép.';
+  }
+  return '';
+}
+
+/**
+ * Validate vai trò trong dự án (không bắt buộc)
+ * - Độ dài tối đa: 60 ký tự
+ */
+export function validateProjectRole(val) {
+  const clean = sanitizeText(val);
+  if (!clean) return '';
+  if (clean.length > 60) return 'Vai trò tối đa 60 ký tự.';
+  if (!PROJECT_LABEL_REGEX.test(clean)) {
+    return 'Vai trò chứa ký tự không được phép.';
+  }
+  return '';
+}
+
+/**
+ * Validate mô tả dự án (không bắt buộc)
+ * - Độ dài tối đa: 300 ký tự
+ * - Không chứa ký tự độc hại
+ */
+export function validateProjectDescription(val) {
+  const clean = sanitizeText(val);
+  if (!clean) return '';
+  if (clean.length > 300) return 'Mô tả tối đa 300 ký tự.';
+  if (containsDangerousChars(clean)) {
+    return 'Mô tả chứa ký tự bất thường không được phép.';
+  }
+  return '';
+}
+
+/**
+ * Validate liên kết dự án (không bắt buộc)
+ * - Phải bắt đầu bằng http:// hoặc https://
+ * - Độ dài tối đa: 200 ký tự
+ */
+export function validateProjectLink(val) {
+  const clean = sanitizeText(val);
+  if (!clean) return '';
+  if (clean.length > 200) return 'Liên kết tối đa 200 ký tự.';
+  if (!/^https?:\/\/\S+$/i.test(clean)) {
+    return 'Liên kết phải bắt đầu bằng http:// hoặc https://';
+  }
+  return '';
+}
+
+/**
+ * Validate tên công nghệ dùng trong dự án (bắt buộc khi thêm)
+ * - Độ dài: 1 - 30 ký tự
+ */
+export function validateTechTag(val) {
+  const clean = sanitizeText(val);
+  if (!clean) return 'Vui lòng nhập tên công nghệ.';
+  if (clean.length > 30) return 'Tên công nghệ tối đa 30 ký tự.';
+  if (!SKILL_NAME_REGEX.test(clean)) {
+    return 'Tên công nghệ chứa ký tự không được phép.';
+  }
+  return '';
+}

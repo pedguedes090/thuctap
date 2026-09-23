@@ -1,0 +1,300 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Demo User",
+      "email": "demo@example.com",
+      "username": "demo",
+      "password": "password123",
+      "avatarColor": "sky",
+      "createdAt": "2026-08-12T02:15:00.000Z",
+      "lastLoginAt": "2026-09-22T01:20:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn An",
+      "email": "an.nguyen@example.com",
+      "username": "an.nguyen",
+      "password": "password123",
+      "avatarColor": "emerald",
+      "createdAt": "2026-09-04T09:40:00.000Z",
+      "lastLoginAt": "2026-09-20T07:05:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "Trần Bảo",
+      "email": "bao.tran@example.com",
+      "username": "bao.tran",
+      "password": "password123",
+      "avatarColor": "amber",
+      "createdAt": "2026-09-18T14:10:00.000Z",
+      "lastLoginAt": null
+    }
+  ],
+  "activities": [
+    {
+      "id": 1,
+      "userId": "1",
+      "type": "register",
+      "message": "Tạo tài khoản AuthStudio",
+      "createdAt": "2026-08-12T02:15:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": "2",
+      "type": "register",
+      "message": "Tạo tài khoản AuthStudio",
+      "createdAt": "2026-09-04T09:40:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": "1",
+      "type": "profile",
+      "message": "Cập nhật thông tin hồ sơ",
+      "createdAt": "2026-09-15T03:05:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": "3",
+      "type": "register",
+      "message": "Tạo tài khoản AuthStudio",
+      "createdAt": "2026-09-18T14:10:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": "1",
+      "type": "password",
+      "message": "Đổi mật khẩu đăng nhập",
+      "createdAt": "2026-09-21T08:30:00.000Z"
+    },
+    {
+      "id": 6,
+      "userId": "1",
+      "type": "login",
+      "message": "Đăng nhập thành công",
+      "createdAt": "2026-09-22T01:20:00.000Z"
+    },
+    {
+      "userId": "1",
+      "type": "profile",
+      "message": "Cập nhật thông tin hồ sơ",
+      "createdAt": "2026-09-22T18:15:12.954Z",
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Backend",
+      "order": 1
+    },
+    {
+      "id": 2,
+      "name": "Kiến trúc",
+      "order": 2
+    },
+    {
+      "id": 3,
+      "name": "Cơ sở dữ liệu",
+      "order": 3
+    },
+    {
+      "id": 4,
+      "name": "Frontend",
+      "order": 4
+    },
+    {
+      "id": 5,
+      "name": "DevOps & Cloud",
+      "order": 5
+    },
+    {
+      "id": 6,
+      "name": "Tối ưu & Tăng trưởng",
+      "order": 6
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "userId": "1",
+      "category": "Backend",
+      "name": "Node.js",
+      "level": "advanced",
+      "createdAt": "2026-08-12T02:20:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": "1",
+      "category": "Backend",
+      "name": "REST API",
+      "level": "advanced",
+      "createdAt": "2026-08-12T02:21:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": "1",
+      "category": "Backend",
+      "name": "Xác thực & phân quyền",
+      "level": "intermediate",
+      "createdAt": "2026-08-12T02:22:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": "1",
+      "category": "Kiến trúc",
+      "name": "Clean Architecture",
+      "level": "intermediate",
+      "createdAt": "2026-08-20T04:10:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": "1",
+      "category": "Kiến trúc",
+      "name": "Thiết kế module",
+      "level": "intermediate",
+      "createdAt": "2026-08-20T04:12:00.000Z"
+    },
+    {
+      "id": 6,
+      "userId": "1",
+      "category": "Cơ sở dữ liệu",
+      "name": "PostgreSQL",
+      "level": "advanced",
+      "createdAt": "2026-08-25T06:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "userId": "1",
+      "category": "Cơ sở dữ liệu",
+      "name": "Tối ưu truy vấn SQL",
+      "level": "intermediate",
+      "createdAt": "2026-08-25T06:05:00.000Z"
+    },
+    {
+      "id": 8,
+      "userId": "1",
+      "category": "Frontend",
+      "name": "React",
+      "level": "advanced",
+      "createdAt": "2026-09-01T03:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "userId": "1",
+      "category": "Frontend",
+      "name": "Tailwind CSS",
+      "level": "advanced",
+      "createdAt": "2026-09-01T03:02:00.000Z"
+    },
+    {
+      "id": 10,
+      "userId": "1",
+      "category": "Frontend",
+      "name": "Vite",
+      "level": "intermediate",
+      "createdAt": "2026-09-01T03:04:00.000Z"
+    },
+    {
+      "id": 11,
+      "userId": "1",
+      "category": "DevOps & Cloud",
+      "name": "Docker",
+      "level": "intermediate",
+      "createdAt": "2026-09-08T08:30:00.000Z"
+    },
+    {
+      "id": 12,
+      "userId": "1",
+      "category": "DevOps & Cloud",
+      "name": "GitHub Actions",
+      "level": "basic",
+      "createdAt": "2026-09-08T08:32:00.000Z"
+    },
+    {
+      "id": 13,
+      "userId": "1",
+      "category": "Tối ưu & Tăng trưởng",
+      "name": "Web Performance",
+      "level": "intermediate",
+      "createdAt": "2026-09-15T03:10:00.000Z"
+    },
+    {
+      "id": 14,
+      "userId": "1",
+      "category": "Tối ưu & Tăng trưởng",
+      "name": "SEO kỹ thuật",
+      "level": "basic",
+      "createdAt": "2026-09-15T03:12:00.000Z"
+    },
+    {
+      "id": 15,
+      "userId": "2",
+      "category": "Frontend",
+      "name": "TypeScript",
+      "level": "intermediate",
+      "createdAt": "2026-09-05T10:00:00.000Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "userId": "1",
+      "name": "AuthStudio",
+      "role": "Tác giả",
+      "description": "Bộ khung đăng ký / đăng nhập React tách thành từng component, xác thực qua mock API json-server và lưu phiên cục bộ.",
+      "tech": [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "json-server"
+      ],
+      "link": "https://github.com/",
+      "createdAt": "2026-09-01T09:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": "1",
+      "name": "Bảng điều khiển bán hàng",
+      "role": "Full-stack Developer",
+      "description": "Theo dõi đơn hàng theo thời gian thực, phân quyền theo vai trò và xuất báo cáo doanh thu theo từng kỳ.",
+      "tech": [
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "link": "https://example.com/",
+      "createdAt": "2026-08-20T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": "1",
+      "name": "API quản lý kho",
+      "role": "Backend Developer",
+      "description": "REST API cho nghiệp vụ nhập xuất kho, xử lý đồng thời bằng hàng đợi và tối ưu truy vấn cho báo cáo tồn kho.",
+      "tech": [
+        "Node.js",
+        "PostgreSQL",
+        "Redis",
+        "GitHub Actions"
+      ],
+      "link": "",
+      "createdAt": "2026-08-05T09:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": "2",
+      "name": "Landing page sự kiện",
+      "role": "Frontend Developer",
+      "description": "Trang giới thiệu sự kiện có đếm ngược và biểu mẫu đăng ký nhận vé.",
+      "tech": [
+        "React",
+        "Tailwind CSS",
+        "Vite"
+      ],
+      "link": "https://example.com/",
+      "createdAt": "2026-09-06T09:00:00.000Z"
+    }
+  ]
+}
